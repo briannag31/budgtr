@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/static/normalize.css" />
+        <link rel="stylesheet" href="/static/skeleton.css" />
+        <link rel="stylesheet" href="/public/styles.css" />
+        <title>Budget</title>
+    </head>
+<body>
+    <h1><span>Edit Expense: </span> <%= item.from %></h1>
+    <form action="/budget/<%= index %>?_method=PUT" method="post">
+        <span>Expense </span> <input type="text" name="expense" value="<%= item.from%>"/> <br/>
+        <span>Name </span> <input type="text" name="name" value="<%= item.name%>"/> <br/>
+        <span>Date </span><input type="text" name="date" value="<%= item.date%>"/> <br/>
+        <span>Amount </span> <input type="text" name="amount" value="<%= item.amount%>"/> <br/>
+        <span>Tags </span><input type="text" name="tags" value="<%= item.tags%>"/> <br/>
+         <br />
+        <input type="submit" value="Update Expense">
+    </form>
+</body>
+</html>

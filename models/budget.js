@@ -1,6 +1,6 @@
 
 
-const budgetItems = [
+const lineItem = [
     {
       date: 'April 1',
       name: 'Income',
@@ -73,4 +73,4 @@ const budgetItems = [
     },
   ];
 
- module.exports=budgetItems
+ module.exports=lineItem

@@ -1,26 +1,57 @@
 const express = require("express")
 const app = express()
-const PORT = 3000
-const budgetItems = require("./models/budget.js");
+const PORT = 3001
+const lineItem = require("./models/budget.js");
 const morgan = require("morgan")
 const methodOverride = require("method-override")
 
 app.use(express.urlencoded({extended: false}));
 app.use(morgan("tiny"))
 app.use(methodOverride("_method")) 
+app.use("/static", express.static("public"))
 
-app.get("/budgets", (req,res)=>{
-    res.send("budgets")
+app.get("/budget/", (req,res)=>{
+    res.render("index.ejs", {allLineItems: lineItem})
 })
 
-app.get("/budgets/new", (req,res)=>{
-    res.send("new")
+
+
+  
+//Index
+
+  //New
+app.get("/budget/new", (req,res)=>{
+    res.render("new.ejs")
  })
  
-app.get("/budgets/:index", (req,res)=>{
-    res.send("index number")
- })
- app.post("/budgets/", (req,res)=>{
+ //Delete
+
+ //Updates
+ app.get("/budget/:id/edit", (req,res)=>{
+    res.render("edit.ejs",{ 
+        item: lineItem[req.params.id],
+  index:req.params.id
+  })
+  })
+
+ //Create
+ app.post('/budget', (req, res) => {
+    lineItem.push(req.body);
+    console.log(lineItem);
+    res.redirect('/budget');
+  });
+ //Edit
+
+ //Show
+ // app.get("/budget/:id", (req, res) => {
+//     res.render("show.ejs", { item: lineItem[req.params.id] });
+//   });
+
+
+// app.get("/budget/:index", (req,res)=>{
+//     res.render("show.ejs")
+//  })
+ app.post("/budget/", (req,res)=>{
     
  })
 
