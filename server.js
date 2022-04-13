@@ -10,15 +10,11 @@ app.use(morgan("tiny"))
 app.use(methodOverride("_method")) 
 app.use("/static", express.static("public"))
 
+
+//Index
 app.get("/budget/", (req,res)=>{
     res.render("index.ejs", {allLineItems: lineItem})
 })
-
-
-
-  
-//Index
-
   //New
 app.get("/budget/new", (req,res)=>{
     res.render("new.ejs")
@@ -43,14 +39,10 @@ app.get("/budget/new", (req,res)=>{
  //Edit
 
  //Show
- // app.get("/budget/:id", (req, res) => {
-//     res.render("show.ejs", { item: lineItem[req.params.id] });
-//   });
+ app.get("/budget/:id", (req, res) => {
+    res.render("show.ejs", { item: lineItem[req.params.id] });
+  });
 
-
-// app.get("/budget/:index", (req,res)=>{
-//     res.render("show.ejs")
-//  })
  app.post("/budget/", (req,res)=>{
     
  })
