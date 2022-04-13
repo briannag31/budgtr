@@ -20,15 +20,6 @@ app.get("/budget/new", (req,res)=>{
     res.render("new.ejs")
  })
  
- //Delete
-
- //Updates
- app.get("/budget/:id/edit", (req,res)=>{
-    res.render("edit.ejs",{ 
-        item: lineItem[req.params.id],
-  index:req.params.id
-  })
-  })
 
  //Create
  app.post('/budget', (req, res) => {
@@ -36,20 +27,11 @@ app.get("/budget/new", (req,res)=>{
     console.log(lineItem);
     res.redirect('/budget');
   });
- //Edit
 
  //Show
  app.get("/budget/:id", (req, res) => {
     res.render("show.ejs", { item: lineItem[req.params.id] });
   });
-
- app.post("/budget/", (req,res)=>{
-    
- })
-
-
-
-
 
 
 app.listen(PORT, () =>{

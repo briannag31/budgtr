@@ -8,31 +8,35 @@
         <link rel="stylesheet" href="/static/normalize.css" />
         <link rel="stylesheet" href="/static/skeleton.css" />
         <link rel="stylesheet" href="/public/styles.css" />
-        <title>Document</title>
+        <title>Budget</title>
     </head>
 <body>
     <h1>Your Expenses This Month:</h1>
-    <nav>
-        <a href="/budget/new">Create a New Budget Line item</a>
-      </nav>
+     <a href="/budget/new"> <button> Create a New Budget Line item</button></a>
+     <table>
+        <tr>
+            <th>Date</th>
+            <th>Expense From</th>
+            <th> Description </th>
+            <th> Amount </th>
+            <th> View Expense </th>
+        </tr>
     <ul>
       <% for(let lineItem in allLineItems) { %>
       <li>
-        <a href="/budget/<%=lineItem%>"><%=allLineItems[lineItem].from %></a> <br>
-        <a><span>Name: </span><%=allLineItems[lineItem].name %></a><br>
-        <a><span>Date: </span><%=allLineItems[lineItem].date %></a><br>
-        <a> <span>Amount: </span> <%=allLineItems[lineItem].amount %></a><br>
-        <a><span>Tags: </span><%=allLineItems[lineItem].tags %></a>
-        <form action="/budget/<%=lineItem%>?_method=delete"
-          method="post">
-          <input type="submit" value="delete">
-        </form>
-
-        <a href="/budget/<%= lineItem %>/edit">
-          <button>Edit</button>
-        </a>
+        <tr>
+            <th><%=allLineItems[lineItem].date %></th>
+            <th><%=allLineItems[lineItem].from %></th>
+            <th> <%=allLineItems[lineItem].name %> </th>
+            <th> <%=allLineItems[lineItem].amount %> </th>
+            <th> <a href="/budget/<%=lineItem%>">
+                <button>View Expense</button></a> </th>
+        </tr>
       </li>
       <% } %>
     </ul>
+    </table>
 </body>
 </html>
+
+
