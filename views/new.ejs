@@ -12,14 +12,13 @@
     </head>
 <body>
     <h1>New Expense </h1>
-    <form action="/budget" onsubmit=<%= "return newVal()" %>  method="POST">
-        <input type="text" name="expense" placeholder="Expense">
-       <input type="text" name="amount" placeholder="Amount">
-       <input type="text" name="date" placeholder="Date"><br>
-       <input type="text" name="description" placeholder="Description">
+    <form action="/budget" method="POST">
+        <input type="text" name="date" placeholder="Date"><br>
+        <input type="text" name="name" placeholder="Description"><br>
+        <input type="text" name="from" placeholder="Expense from"><br>
+       <input type="text" name="amount" placeholder="Amount"><br>
        <input type="text" name="tags" placeholder="Tags"><br>
         <input type="submit" value="Create New Expense"> 
-      
       </form>
 </body>
 </html>

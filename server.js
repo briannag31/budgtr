@@ -33,7 +33,7 @@ app.get("/budget/", (req,res)=>{
 })
   //New
 app.get("/budget/new", (req,res)=>{
-    res.render("new.ejs", {items: lineItem})
+    res.render("new.ejs")
  
  })
 
