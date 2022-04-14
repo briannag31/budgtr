@@ -11,12 +11,13 @@
         <title>Budget</title>
     </head>
 <body>
-    <h1><span>Your Expense: </span> <%=item.from; %></h1>
+    <h1>Your Expense:  <%=item.from; %></h1>
     <form action="/budget" method="POST">
-        <span>Description: </span> <%=item.name;%><br>
-        <span>Date: </span> <%=item.date;%><br>
-        <span>Amount: </span> <%=item.amount;%><br>
-        <span>Tags: </span><%=item.tags;%><br>
+        <span>Description: </span> <br>
+         <%=item.name;%><br>
+        <span>Date: </span><br> <%=item.date;%><br>
+        <span>Amount: </span><br>$ <%=item.amount;%><br>
+        <span>Tags: </span><br><%=item.tags;%><br>
         <a href="/budget"> <button> Back to All Expenses</button></a>
       </form>
 </body>

@@ -11,14 +11,15 @@
         <title>Budget</title>
     </head>
 <body>
-    <h1><span>New Expense </span></h1>
-    <form action="/budget" method="POST">
+    <h1>New Expense </h1>
+    <form action="/budget" onsubmit=<%= "return newVal()" %>  method="POST">
         <input type="text" name="expense" placeholder="Expense">
        <input type="text" name="amount" placeholder="Amount">
        <input type="text" name="date" placeholder="Date"><br>
        <input type="text" name="description" placeholder="Description">
        <input type="text" name="tags" placeholder="Tags"><br>
-        <input type="submit" value="Create New Expense">
+        <input type="submit" value="Create New Expense"> 
+      
       </form>
 </body>
 </html>

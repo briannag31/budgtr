@@ -11,7 +11,7 @@
         <title>Budget</title>
     </head>
 <body>
-    <h1><span>Edit Expense: </span> <%= item.from %></h1>
+    <h1>Edit Expense: <%= item.from %></h1>
     <form action="/budget/<%= index %>?_method=PUT" method="post">
         <span>Expense </span> <input type="text" name="expense" value="<%= item.from%>"/> <br/>
         <span>Name </span> <input type="text" name="name" value="<%= item.name%>"/> <br/>

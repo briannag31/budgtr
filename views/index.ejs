@@ -11,16 +11,32 @@
         <title>Budget</title>
     </head>
 <body>
-    <h1>Your Expenses This Month:</h1>
-    <h4>Your current balance: <%= bankAcct %>  </h4>
+    <div class="hide">
+    <% let bankAcct = []; %>
+        <% let currentBalance=0 %>
+        <% for(let lineItem in allLineItems) {%>
+            <%=currentBalance= (allLineItems[lineItem].amount) %>
+            <%= parseInt(currentBalance) %> 
+            <%bankAcct.push(parseInt(currentBalance)) %>
+
+        <% }  %>
+        <% let sum = 0%>
+        <%for (let i = 0; i < bankAcct.length; i++) {%>
+        <%sum += bankAcct[i] %>
+      <%}%> 
+    </div>
+
+    <h1>Your Expenses This Month</h1>
+    <h4>Your current balance: $<%= sum %> </h4>
      <a href="/budget/new"> <button> Create a New Budget Line item</button></a>
-     <table>
+     
+     <table class="table">
         <tr>
-            <th>Date</th>
-            <th>Expense From</th>
-            <th> Description </th>
-            <th> Amount </th>
-            <th> View Expense </th>
+            <th class="header">Date</th>
+            <th class="header">Expense From</th>
+            <th class="header"> Description </th>
+            <th class="header"> Amount </th>
+            <th class="header"> View Expense </th>
         </tr>
     <ul>
       <% for(let lineItem in allLineItems) { %>
@@ -28,13 +44,14 @@
             <th><%=allLineItems[lineItem].date %></th>
             <th><%=allLineItems[lineItem].from %></th>
             <th> <%=allLineItems[lineItem].name %> </th>
-            <th> <%=allLineItems[lineItem].amount %> </th>
+            <th> $<%=allLineItems[lineItem].amount %> </th>
             <th> <a href="/budget/<%=lineItem%>">
                 <button>View Expense</button></a> </th>
         </tr>
       <% } %>
     </ul>
     </table>
+
 </body>
 </html>
 
